@@ -1,0 +1,51 @@
+
+<div  >
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 "  >
+      <form [formGroup]="memberForm" (ngSubmit)="onSubmit()"  >
+        <div class="example-button-row">
+          <button mat-raised-button color="primary" type="submit" >Save</button>
+          <button mat-raised-button color="warn"  type="button" (click)="cancelform()" [routerLink]="['']">Cancel</button>
+        </div>
+       
+       <div fxLayout="column" fxLayoutAlign="space-around stretch" >
+
+
+        <mat-form-field>
+          <mat-label>Cin</mat-label>
+          <input matInput
+          type="number"
+          formControlName="cin">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput
+          type="string"
+          formControlName="name">
+        </mat-form-field>
+        
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <input matInput
+          type="string"
+          formControlName="type">
+        </mat-form-field>  
+
+        <mat-form-field>
+          <mat-label>Cv</mat-label>
+          <input matInput
+          type="string"
+          formControlName="cv">
+        </mat-form-field>   
+        
+        <mat-form-field>
+          <mat-label>Created Date</mat-label>
+          <input matInput
+          type="string"
+          formControlName="created_date">
+        </mat-form-field>
+          
+       </div>
+      </form>   
+  </div>
+</div>
