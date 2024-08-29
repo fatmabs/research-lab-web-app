@@ -7,11 +7,11 @@
                 <span>FabsLab</span>
         </mat-toolbar>
         <mat-nav-list >
-          <a mat-list-item href="#">Dashboard</a>
-          <a mat-list-item [routerLink]="['']">Members</a>
-          <a mat-list-item href="#">Tools</a>
-          <a mat-list-item href="#">Articles</a>
-          <a mat-list-item href="#">Events</a>
+          <a mat-list-item [routerLink]="['']">Dashboard</a>
+          <a mat-list-item [routerLink]="['members']">Members</a>
+          <a mat-list-item [routerLink]="['tools']">Tools</a>
+          <a mat-list-item [routerLink]="['articles']">Articles</a>
+          <a mat-list-item [routerLink]="['events']">Events</a>
 
         </mat-nav-list>
       </div>
@@ -48,7 +48,7 @@
                         <mat-icon>account_box</mat-icon>
                         <span>Profil</span>
                       </button>
-                      <button mat-menu-item disabled>
+                      <button mat-menu-item [routerLink]="['login']">
                         <mat-icon>exit_to_app</mat-icon>
                                                 <span>Logout</span>
                       </button>

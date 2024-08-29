@@ -1,7 +1,8 @@
-export interface Event{
-    id: number;
+export interface Evenement{
+    id: string;
     title:string;
-    date:Date;
+    start_date:string;
+    end_date:string;
     place:string;
-
+    id_member:string;
 }

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params, Route, Router, Routes } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Params, Route, Router, Routes } from '@angular/router';
 import { MemberService } from 'src/app/service/member.service';
 import { Member } from 'src/Model/Member';
 
@@ -9,32 +9,26 @@ import { Member } from 'src/Model/Member';
   templateUrl: './modifymember.component.html',
   styleUrls: ['./modifymember.component.css']
 })
-export class ModifymemberComponent {
+export class ModifymemberComponent implements OnInit{
 
   memberForm! : FormGroup;
   editMode=false;
-  id!: number;
+  id!: string;
   member!:Member;
+  membertype:string[]=['Teacher','Student']
 cancelform() {
-  this.router.navigate([''])
+  this.router.navigate(['../members'])
 }
 
-  constructor(private memberService: MemberService, private router :Router, private route: ActivatedRoute){}
+  constructor(private memberService: MemberService, private router :Router, private route: ActivatedRoute ){}
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params:Params)=>{
-        this.id = +params['id'];       
-        console.log("ngOn init editMode= ",this.id)
-
-        this.editMode = params['id'] != null;
-        console.log("ngOn init editMode= ",this.editMode)
-        this.initForm();
-      }
-    )
+     this.id=this.route.snapshot.params['id'];
+     this.editMode = this.route.snapshot.params['id'] != null;
+     console.log("ngoninit editMode= ",this.editMode)
+     this.initForm();
   }
 
   private initForm(){
-    
     this.memberForm= new FormGroup({
       cin: new FormControl(null, Validators.required),
       name: new FormControl('', Validators.required),
@@ -64,11 +58,12 @@ cancelform() {
         cv:this.memberForm.value.cv,
         created_date:this.memberForm.value.created_date
       }
-      this.memberService.updateMember(this.id,updatedValue).subscribe(()=>{this.router.navigate([''])})
+      this.memberService.updateMember(this.id,updatedValue).subscribe(()=>{this.router.navigate(['members'])})
 
 
     }else{
-      this.memberService.addMember(this.memberForm.value).subscribe(()=>{this.router.navigate([''])})
+      console.log(this.memberForm.value)
+      this.memberService.addMember(this.memberForm.value).subscribe(()=>{this.router.navigate(['members'])})
 
     }
   }

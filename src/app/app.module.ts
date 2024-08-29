@@ -21,13 +21,30 @@ import {MatInputModule} from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MemberdetailComponent } from './members/memberdetail/memberdetail.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
 import {MatSelectModule} from '@angular/material/select';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { MatListModule } from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatMenuModule} from '@angular/material/menu';
+import { DeleteMemberDialogComponent } from './members/modifymember/delete-member-dialog/delete-member-dialog.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { EventsComponent } from './events/events.component';
+import { ToolsComponent } from './tools/tools.component';
+import { MemberslistComponent } from './members/memberslist/memberslist.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { EventsListComponent } from './events/events-list/events-list.component';
+import { CreateEditEventComponent } from './events/create-edit-event/create-edit-event.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { DeleteEventDialogComponent } from './events/create-edit-event/delete-event-dialog/delete-event-dialog.component';
+import { MatSortModule} from '@angular/material/sort';
+import { NgFor } from '@angular/common';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
+
 
 
 
@@ -38,7 +55,16 @@ import {MatMenuModule} from '@angular/material/menu';
     HeaderComponent,
     ModifymemberComponent,
     MemberdetailComponent,
-    SideNavComponent
+    SideNavComponent,
+    DeleteMemberDialogComponent,
+    LoginPageComponent,
+    EventsComponent,
+    ToolsComponent,
+    MemberslistComponent,
+    DashboardComponent,
+    EventsListComponent,
+    CreateEditEventComponent,
+    DeleteEventDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,10 +88,13 @@ import {MatMenuModule} from '@angular/material/menu';
     MatListModule,
     MatCardModule,
     MatButtonToggleModule,
-    MatMenuModule
-
-    
-
+    MatMenuModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSortModule,
+    NgFor,
+    MatPaginatorModule
     
   ],
   providers: [],

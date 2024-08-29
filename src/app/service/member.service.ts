@@ -14,10 +14,11 @@ export class MemberService {
 
   addMember(member:Member){
     const url='http://localhost:3001/members';
+    console.log(member)
     return this.http.post<Member>(url,member);
   }
 
- getMember(id:number){
+ getMember(id:string){
   const url=`${'http://localhost:3001/members/'}${id}`;
           return this.http.get<Member>(url);
 
@@ -30,7 +31,7 @@ export class MemberService {
           
 
   }
-  updateMember(id:number,value:{cin:number , name: string,type: string, cv:string, created_date:string}){
+  updateMember(id:string,value:{cin:number , name: string,type: string, cv:string, created_date:string}){
     const url=`${'http://localhost:3001/members/'}${id}`;
     return this.http.put<Member>(url,value);
   }
@@ -39,7 +40,6 @@ export class MemberService {
 
 
   deleteMember(id:number): Observable<void>{
-    console.log(id)
     const url=`${'http://localhost:3001/members/'}${id}`;
     return this.http.delete<void>(url);
   }

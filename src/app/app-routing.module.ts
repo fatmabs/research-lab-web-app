@@ -3,18 +3,30 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ModifymemberComponent } from './members/modifymember/modifymember.component';
 import { MembersComponent } from './members/members.component';
-import { MemberResolverService } from './service/member-resolver.service';
-import { MemberdetailComponent } from './members/memberdetail/memberdetail.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { EventsComponent } from './events/events.component';
+import { MemberslistComponent } from './members/memberslist/memberslist.component';
+import { EventsListComponent } from './events/events-list/events-list.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 const routes: Routes = [
-  { path: '', component:MembersComponent},
-  { path:'new', component: ModifymemberComponent},
-  { path:'edit/:id', component: ModifymemberComponent},
-  //we will see if we need a resolver or not
-  // { path:'edit/:id', component: ModifymemberComponent, resolve:[MemberResolverService]},
+  { path: '', component:SideNavComponent ,children:[
+    { path:'login', component:LoginPageComponent},
+    { path:'members', component:MembersComponent, children:[
+      { path:'', component:MemberslistComponent},
+      { path:'new', component: ModifymemberComponent},
+      { path:'edit/:id', component: ModifymemberComponent},
+    ]},
+    { path:'events', component:EventsComponent, children:[
+      { path:'', component:EventsListComponent}
 
-  { path:':id', component:MemberdetailComponent},
-  { path: 'modifymember/:id',component:ModifymemberComponent }, 
+    ]}
+
+  ]
+    
+
+  }
+  
 ];
 
 @NgModule({

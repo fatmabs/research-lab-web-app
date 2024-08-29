@@ -1,23 +1,111 @@
 {
   "members": [
     {
-      "id": "3363",
-      "cin": 654654,
-      "name": "lkjlkj",
-      "type": "kjkjl",
-      "cv": "lkjlkjlk",
-      "created_date": "lkjlkjl"
+      "cin": 555,
+      "name": "Emna",
+      "type": "Teacher",
+      "cv": "https://github.com/fatmabs/research-lab-web-app",
+      "created_date": "2024-08-14T23:00:00.000Z",
+      "id": "e681"
+    },
+    {
+      "cin": 444444,
+      "name": "fatma",
+      "type": "Student",
+      "cv": "https://www.chartjs.org/docs/latest/samples/information.html",
+      "created_date": "2024-08-30T23:00:00.000Z",
+      "id": "b4cf"
+    },
+    {
+      "id": "af8c",
+      "cin": 12345678,
+      "name": "mariem",
+      "type": "Student",
+      "cv": "https://v16.material.angular.io/components/categories",
+      "created_date": "2024-08-29T23:00:00.000Z"
+    },
+    {
+      "id": "33d8",
+      "cin": 45698712,
+      "name": "Imen",
+      "type": "Teacher",
+      "cv": "https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/",
+      "created_date": "2024-08-29T23:00:00.000Z"
     }
   ],
-  "Events": [
+  "events": [
     {
-      "id": "01d5"
+      "title": "title 4",
+      "start_date": "2024-08-27T23:00:00.000Z",
+      "end_date": "2024-08-30T23:00:00.000Z",
+      "place": "444",
+      "id_member": "b4cf",
+      "id": "4"
     },
     {
-      "id": "1da7"
+      "title": "title 1",
+      "start_date": "2024-08-27T23:00:00.000Z",
+      "end_date": "2024-08-30T23:00:00.000Z",
+      "place": "444444",
+      "id_member": "b4cf",
+      "id": "5"
     },
     {
-      "id": "9bed"
+      "title": "title 2",
+      "start_date": "2024-08-08T23:00:00.000Z",
+      "end_date": "2024-08-15T23:00:00.000Z",
+      "place": "aaaakkkkkkkkkk",
+      "id_member": "e681",
+      "id": "6"
+    },
+    {
+      "title": "title 3",
+      "start_date": "2024-08-27T23:00:00.000Z",
+      "end_date": "2024-08-30T23:00:00.000Z",
+      "place": "444",
+      "id_member": "b4cf",
+      "id": "7"
+    },
+    {
+      "title": "title 4",
+      "start_date": "2024-08-27T23:00:00.000Z",
+      "end_date": "2024-08-30T23:00:00.000Z",
+      "place": "444",
+      "id_member": "b4cf",
+      "id": "8"
+    },
+    {
+      "title": "title 1",
+      "start_date": "2024-08-27T23:00:00.000Z",
+      "end_date": "2024-08-30T23:00:00.000Z",
+      "place": "444444",
+      "id_member": "b4cf",
+      "id": "9"
+    },
+    {
+      "title": "title 2",
+      "start_date": "2024-08-08T23:00:00.000Z",
+      "end_date": "2024-08-15T23:00:00.000Z",
+      "place": "aaaakkkkkkkkkk",
+      "id_member": "e681",
+      "id": "10"
+    },
+    {
+      "title": "title 3",
+      "start_date": "2024-08-27T23:00:00.000Z",
+      "end_date": "2024-08-30T23:00:00.000Z",
+      "place": "444",
+      "id_member": "b4cf",
+      "id": "11"
+    },
+    {
+      "title": "title 4",
+      "start_date": "2024-08-27T23:00:00.000Z",
+      "end_date": "2024-08-30T23:00:00.000Z",
+      "place": "444",
+      "id_member": "b4cf",
+      "id": "12"
     }
-  ]
+  ],
+  "outils": []
 }

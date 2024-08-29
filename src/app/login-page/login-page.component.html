@@ -1,0 +1,39 @@
+
+        <mat-card >
+            <div  fxLayout="column" fxLayoutAlign="space-evenly stretch">
+
+            <mat-card-title>
+                <mat-toolbar style="  border-radius: 5px;" color="primary">
+                    Login
+                </mat-toolbar>
+            </mat-card-title>
+            <mat-card-content>
+                    <form [formGroup]="form" (ngSubmit)="submit()">
+                        <p>
+                          <mat-form-field>
+                            <mat-icon>perm_identity</mat-icon>
+                            <input type="text" matInput placeholder="Username" formControlName="username">
+                          </mat-form-field>
+                        </p>
+              
+                        <p>
+                          <mat-form-field>
+                            <mat-icon>lock</mat-icon>
+                            <input type="password" matInput placeholder="Password" formControlName="password">
+                          </mat-form-field>
+                        </p>
+              
+                        <!-- <p *ngIf="error" class="error">
+                          {{ error }}
+                        </p> -->
+              
+                        <div class="button">
+                          <button mat-button [routerLink]="['']" color="primary">Login</button>
+                        </div>
+              
+                      </form>
+              
+            </mat-card-content>
+        </div>
+
+        </mat-card>  
