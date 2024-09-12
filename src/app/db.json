@@ -105,7 +105,80 @@
       "place": "444",
       "id_member": "b4cf",
       "id": "12"
+    },
+    {
+      "id": "c85d",
+      "title": "",
+      "start_date": "",
+      "end_date": "",
+      "place": "",
+      "id_member": ""
+    },
+    {
+      "id": "7a86",
+      "title": "ddf",
+      "start_date": "2024-09-24T23:00:00.000Z",
+      "end_date": "2024-09-25T23:00:00.000Z",
+      "place": "dddd",
+      "id_member": "b4cf"
+    },
+    {
+      "id": "2228",
+      "title": "44444",
+      "start_date": "2024-09-17T23:00:00.000Z",
+      "end_date": "2024-09-19T23:00:00.000Z",
+      "place": "55555",
+      "id_member": "b4cf"
     }
   ],
-  "outils": []
+  "publications": [
+    {
+      "id": "295c",
+      "type": "hh",
+      "title": "hhhh",
+      "lien": "hh",
+      "date": "",
+      "sourcepdf": "hh",
+      "member": {
+        "cin": 555,
+        "name": "Emna",
+        "type": "Teacher",
+        "cv": "https://github.com/fatmabs/research-lab-web-app",
+        "created_date": "2024-08-14T23:00:00.000Z",
+        "id": "e681"
+      }
+    },
+    {
+      "id": "4ba6",
+      "type": "tt",
+      "title": "rr",
+      "lien": "ee",
+      "date": "",
+      "sourcepdf": "ee",
+      "member": {
+        "cin": 444444,
+        "name": "fatma",
+        "type": "Student",
+        "cv": "https://www.chartjs.org/docs/latest/samples/information.html",
+        "created_date": "2024-08-30T23:00:00.000Z",
+        "id": "b4cf"
+      }
+    },
+    {
+      "id": "a1a1",
+      "type": "777",
+      "title": "7777",
+      "lien": "7777",
+      "date": "",
+      "sourcepdf": "7777",
+      "member": {
+        "cin": 444444,
+        "name": "fatma",
+        "type": "Student",
+        "cv": "https://www.chartjs.org/docs/latest/samples/information.html",
+        "created_date": "2024-08-30T23:00:00.000Z",
+        "id": "b4cf"
+      }
+    }
+  ]
 }

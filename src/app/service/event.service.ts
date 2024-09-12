@@ -20,7 +20,7 @@ getEvent(id:string){
   console.log('Fetching events from URL:', id);
       return this.http.get<Evenement>(url);
 }
-addEvent(event:Event){
+addEvent(event:Evenement){
   const url='http://localhost:3001/events';
 
   return this.http.post<Evenement>(url,event)

@@ -42,10 +42,23 @@ import { DeleteEventDialogComponent } from './events/create-edit-event/delete-ev
 import { MatSortModule} from '@angular/material/sort';
 import { NgFor } from '@angular/common';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { PublicationComponent } from './Publications/publication/publication.component';
+import { PublicationListComponent } from './Publications/publication/publication-list/publication-list.component';
+import { CreateEditPublicationComponent } from './Publications/publication/create-edit-publication/create-edit-publication.component';
+import { DeletePublicationDialogComponent } from './Publications/publication/create-edit-publication/delete-publication-dialog/delete-publication-dialog.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 
-
-
+const firebaseConfig = {
+  apiKey: "AIzaSyCrNBFjZAcdyD3_gTCED9-1_WCwXe7RLN0",
+    authDomain: "researchlabo-authentification.firebaseapp.com",
+    projectId: "researchlabo-authentification",
+    storageBucket: "researchlabo-authentification.appspot.com",
+    messagingSenderId: "425442055815",
+    appId: "1:425442055815:web:fd0e01b1ec54f04b0f4a22",
+    measurementId: "G-WBXZ3VLJJ5"
+};
 
 
 @NgModule({
@@ -65,12 +78,18 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     EventsListComponent,
     CreateEditEventComponent,
     DeleteEventDialogComponent,
+    PublicationComponent,
+    PublicationListComponent,
+    CreateEditPublicationComponent,
+    DeletePublicationDialogComponent,
+  
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig), 
+    AngularFireAuthModule, 
     FormsModule,
     ReactiveFormsModule,
-
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -94,8 +113,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatNativeDateModule,
     MatSortModule,
     NgFor,
-    MatPaginatorModule
-    
+    MatPaginatorModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

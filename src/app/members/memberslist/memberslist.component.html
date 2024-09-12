@@ -12,9 +12,16 @@
     </button>
   </div>
      <br>
+     <div fxLayout="column" fxLayoutAlign="none">
+  
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. member_name" #input>
+      </mat-form-field>
+  </div>
 <table 
     mat-table 
-    [dataSource]="datasource" 
+    [dataSource]="datasourcefilter" 
     class="mat-elevation-z8" >
     
     <!-- id Column -->

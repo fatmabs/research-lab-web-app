@@ -8,10 +8,16 @@ import { EventsComponent } from './events/events.component';
 import { MemberslistComponent } from './members/memberslist/memberslist.component';
 import { EventsListComponent } from './events/events-list/events-list.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { PublicationComponent } from './Publications/publication/publication.component';
+import { PublicationListComponent } from './Publications/publication/publication-list/publication-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
+  { path: '', component:AppComponent ,children:[
+  { path:'login', component:LoginPageComponent},
+
   { path: '', component:SideNavComponent ,children:[
-    { path:'login', component:LoginPageComponent},
+    { path:'', component:DashboardComponent},
     { path:'members', component:MembersComponent, children:[
       { path:'', component:MemberslistComponent},
       { path:'new', component: ModifymemberComponent},
@@ -20,9 +26,13 @@ const routes: Routes = [
     { path:'events', component:EventsComponent, children:[
       { path:'', component:EventsListComponent}
 
+    ]},
+    { path:'publications', component:PublicationComponent, children:[
+      { path:'', component:PublicationListComponent}
+
     ]}
 
-  ]
+  ] }]
     
 
   }

@@ -1,5 +1,5 @@
 export interface Member{
-id:number;
+id:string;
 cin:number;
 name:string;
 type :"Teacher" |" Student";

@@ -10,7 +10,7 @@
           <a mat-list-item [routerLink]="['']">Dashboard</a>
           <a mat-list-item [routerLink]="['members']">Members</a>
           <a mat-list-item [routerLink]="['tools']">Tools</a>
-          <a mat-list-item [routerLink]="['articles']">Articles</a>
+          <a mat-list-item [routerLink]="['publications']">Publications</a>
           <a mat-list-item [routerLink]="['events']">Events</a>
 
         </mat-nav-list>
@@ -48,9 +48,9 @@
                         <mat-icon>account_box</mat-icon>
                         <span>Profil</span>
                       </button>
-                      <button mat-menu-item [routerLink]="['login']">
+                      <button mat-menu-item (click)="logout()">
                         <mat-icon>exit_to_app</mat-icon>
-                                                <span>Logout</span>
+                        <span>Logout</span>
                       </button>
                     </mat-menu>
                                       

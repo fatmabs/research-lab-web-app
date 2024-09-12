@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-nav',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class SideNavComponent {
 
+  constructor( private router : Router ,public afAuth: AngularFireAuth,){}
+  logout() {
+    this.afAuth.signOut().then(() => {
+      console.log('Logged out');
+      this.router.navigate(['/login'])
+
+    });
+  }
 }

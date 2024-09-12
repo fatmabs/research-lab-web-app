@@ -1,0 +1,70 @@
+
+<h1 mat-dialog-title *ngIf="data.publication_id;else create">Edit publication</h1>
+<ng-template #create>
+  <h1 mat-dialog-title >Create publication</h1>
+
+</ng-template>
+<div mat-dialog-content>
+  <div  >
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 "  >
+        <form [formGroup]="publicationForm"   >
+         
+         <div fxLayout="column" fxLayoutAlign="space-around stretch" >
+          
+          <mat-form-field>
+            <mat-label>Select member</mat-label>
+            <mat-select formControlName="member">
+              <mat-option *ngFor="let m of members" [value]="m">
+                {{m.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          
+          <mat-form-field>
+            <mat-label>type</mat-label>
+            <input matInput
+            type="string"
+            formControlName="type">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>title</mat-label>
+            <input matInput
+            type="string"
+            formControlName="title">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>lien</mat-label>
+            <input matInput
+            type="string"
+            formControlName="lien">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Date</mat-label>
+            <input matInput formControlName="date" [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>sourcepdf</mat-label>
+            <input matInput
+            type="string"
+            formControlName="sourcepdf">
+          </mat-form-field>
+            
+         </div>
+        </form>   
+    </div>
+  </div></div>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end none" >
+  <div class="example-button-row">
+    <button mat-raised-button color="primary" (click)="onConfirm()" >Save</button>
+    <button mat-raised-button color="warn"  type="button" (click)="onCancel()" >Cancel</button>
+  </div>
+ 
+</div>
+

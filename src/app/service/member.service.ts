@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Member } from 'src/Model/Member';
@@ -10,27 +10,27 @@ export class MemberService {
 
 
   constructor(private http:HttpClient) { }
+  private apiUrl='http://localhost:8070/api/members';
 
 
   addMember(member:Member){
-    const url='http://localhost:3001/members';
     console.log(member)
-    return this.http.post<Member>(url,member);
+    return this.http.post<Member>(this.apiUrl,member);
   }
 
  getMember(id:string){
-  const url=`${'http://localhost:3001/members/'}${id}`;
-          return this.http.get<Member>(url);
+          return this.http.get<Member>(`${this.apiUrl}${id}`);
 
   }
   getMembers():Observable<Member[]>{
-      const url='http://localhost:3001/members';
-      console.log('Fetching members from URL:', url);
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + btoa('admin:adminpass')  // Replace 'user' and 'password' with actual credentials
+    });
 
-          return this.http.get<Member[]>(url);
-          
+    return this.http.get<any[]>(this.apiUrl, { headers });
+  }          
 
-  }
+  
   updateMember(id:string,value:{cin:number , name: string,type: string, cv:string, created_date:string}){
     const url=`${'http://localhost:3001/members/'}${id}`;
     return this.http.put<Member>(url,value);

@@ -1,4 +1,23 @@
+        <mat-card >
+            <div  fxLayout="column" fxLayoutAlign="space-evenly stretch">
 
+            <mat-card-title>
+                <mat-toolbar style="  border-radius: 5px;" color="primary">
+                    Login
+                </mat-toolbar>
+            </mat-card-title>
+            <mat-card-content>             
+              
+                        <div class="button">
+                          <button mat-button (click)="loginWithGoogle()" color="primary">Sign in with Google</button>
+                        </div>
+              
+            </mat-card-content>
+          </div>
+        </mat-card>  
+
+
+        <!-- 
         <mat-card >
             <div  fxLayout="column" fxLayoutAlign="space-evenly stretch">
 
@@ -8,6 +27,8 @@
                 </mat-toolbar>
             </mat-card-title>
             <mat-card-content>
+
+              
                     <form [formGroup]="form" (ngSubmit)="submit()">
                         <p>
                           <mat-form-field>
@@ -23,11 +44,11 @@
                           </mat-form-field>
                         </p>
               
-                        <!-- <p *ngIf="error" class="error">
+                        <p *ngIf="error" class="error">
                           {{ error }}
                         </p> -->
               
-                        <div class="button">
+                        <!-- <div class="button">
                           <button mat-button [routerLink]="['']" color="primary">Login</button>
                         </div>
               
@@ -36,4 +57,4 @@
             </mat-card-content>
         </div>
 
-        </mat-card>  
+        </mat-card>   --> 
