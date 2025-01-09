@@ -10,7 +10,7 @@ export class MemberService {
 
 
   constructor(private http:HttpClient) { }
-  private apiUrl='http://localhost:8070/api/members';
+  private apiUrl='http://localhost:3001/members';
 
 
   addMember(member:Member){
