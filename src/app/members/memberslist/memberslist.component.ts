@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import { Member } from 'src/Model/Member';
 import { Subscription } from 'rxjs';
 import { MemberService } from 'src/app/service/member.service';

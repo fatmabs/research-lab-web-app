@@ -3,7 +3,6 @@ import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EventService } from 'src/app/service/event.service';
 import { MemberService } from 'src/app/service/member.service';
 import { PublicationService } from 'src/app/service/publication.service';
 import { Member } from 'src/Model/Member';

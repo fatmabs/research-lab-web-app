@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import firebase from 'firebase/compat/app'; // Import Firebase
+import { Auth, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
+
+
 
 @Component({
   selector: 'app-login-page',
@@ -9,22 +10,33 @@ import firebase from 'firebase/compat/app'; // Import Firebase
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-  constructor(public afAuth: AngularFireAuth, private router: Router ){}
+  constructor(private auth: Auth, private router: Router) {}
 
 
-
-  // Login with Google method
   loginWithGoogle() {
-    this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(this.auth, provider)
       .then(result => {
         console.log('Logged in successfully:', result);
-        this.router.navigate(['/members'])
-        // Do something with the result (redirect, store user info, etc.)
+        this.router.navigate(['/members']);
       })
       .catch(error => {
         console.error('Login error:', error);
       });
   }
+
+  // // Login with Google method
+  // loginWithGoogle() {
+  //   this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+  //     .then(result => {
+  //       console.log('Logged in successfully:', result);
+  //       this.router.navigate(['/members'])
+  //       // Do something with the result (redirect, store user info, etc.)
+  //     })
+  //     .catch(error => {
+  //       console.error('Login error:', error);
+  //     });
+  // }
 
   // Optional: Logout method
 

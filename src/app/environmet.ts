@@ -1,7 +1,6 @@
 export const environment={
     production: false,
   firebaseConfig: {
-
     apiKey: "AIzaSyCrNBFjZAcdyD3_gTCED9-1_WCwXe7RLN0",
     authDomain: "researchlabo-authentification.firebaseapp.com",
     projectId: "researchlabo-authentification",

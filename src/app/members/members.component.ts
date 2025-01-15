@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
-import { ModifymemberComponent } from './modifymember/modifymember.component';
+import { MatDialog} from '@angular/material/dialog';
 import { MemberService } from '../service/member.service';
 import { Member } from 'src/Model/Member';
 import { Subscription } from 'rxjs';

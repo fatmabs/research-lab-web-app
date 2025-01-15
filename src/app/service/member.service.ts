@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Member } from 'src/Model/Member';
 
 @Injectable({
@@ -19,15 +19,15 @@ export class MemberService {
   }
 
  getMember(id:string){
-          return this.http.get<Member>(`${this.apiUrl}${id}`);
+          return this.http.get<Member>(`${this.apiUrl}/${id}`);
 
   }
   getMembers():Observable<Member[]>{
-    const headers = new HttpHeaders({
-      'Authorization': 'Basic ' + btoa('admin:adminpass')  // Replace 'user' and 'password' with actual credentials
-    });
+    // const headers = new HttpHeaders({
+    //   'Authorization': 'Basic ' + btoa('admin:adminpass')  // Replace 'user' and 'password' with actual credentials
+    // });
 
-    return this.http.get<any[]>(this.apiUrl, { headers });
+    return this.http.get<any[]>(this.apiUrl);
   }          
 
   
