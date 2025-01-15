@@ -50,6 +50,7 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
+
     CommonModule,
     MaterialModule,
     FlexLayoutModule

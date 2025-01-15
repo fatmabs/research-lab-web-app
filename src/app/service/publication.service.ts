@@ -1,38 +1,44 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Evenement } from 'src/Model/Event';
+import { from, Observable } from 'rxjs';
 import { Publication } from 'src/Model/Publication';
+import { Database, ref, push, set, update, remove, get } from '@angular/fire/database';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PublicationService {
 
-  constructor(private http: HttpClient) { }
-  getPublications():Observable<Publication[]>{
-    const url='http://localhost:3001/publications';
-    console.log('Fetching publications from URL:', url);
-        return this.http.get<Publication[]>(url);
+    private publicationsPath = 'publications';
+  
+    constructor(private db: Database) {}
 
-}
-getPublication(id:string){
-  const url=`${'http://localhost:3001/publications/'}${id}`;
-  console.log('Fetching publications from URL:', id);
-      return this.http.get<Publication>(url);
-}
-addPublication(pub:Publication){
-  const url='http://localhost:3001/publications';
+    getPublications():Observable<Publication[]>{
+      const dbRef = ref(this.db, this.publicationsPath);
+      return  from(get(dbRef).then(snapshot => snapshot.val()));
+   }
+  
+  
+   getPublication(id: string) : Observable<Publication>{
+      const dbRef = ref(this.db, `${this.publicationsPath}/${id}`);
+      return from(get(dbRef).then(snapshot => snapshot.val()));
+    }
+  
+    addPublication(pub:Publication): Observable<void>{
+      const dbRef = ref(this.db, this.publicationsPath);
+      const newPublicationRef = push(dbRef);
+      return from(set(newPublicationRef, pub));
+    }
+ 
+    updatePublication(id:string, value:{type:string , title: string,lien:string, date: string,sourcepdf:string }): Observable<void> {
+      const dbRef = ref(this.db, `${this.publicationsPath}/${id}`);
+      return from(update(dbRef, value));
+    }
 
-  return this.http.post<Publication>(url,pub)
-}
-updatePublication(id:string, value:{type:string , title: string,lien:string, date: string,sourcepdf:string }){
-   const url=`${'http://localhost:3001/publications/'}${id}`;
-return this.http.put<Publication>(url,value)
-}
-
-deletePublication(id:string): Observable<void>{
-  const url=`${'http://localhost:3001/publications/'}${id}`;
-  return this.http.delete<void>(url);
-}
+    deletePublication(id: string): Observable<void> {
+      const dbRef = ref(this.db, `${this.publicationsPath}/${id}`);
+      return from(remove(dbRef));
+    }
+  
 }

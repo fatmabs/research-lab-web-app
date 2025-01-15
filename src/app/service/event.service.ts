@@ -1,37 +1,40 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable ,from} from 'rxjs';
 import { Evenement } from 'src/Model/Event';
+import { Database, ref, push, set, update, remove, get } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
 
-  constructor(private http: HttpClient) { }
-  getEvents():Observable<Evenement[]>{
-    const url='http://localhost:3001/events';
-    console.log('Fetching members from URL:', url);
-        return this.http.get<Evenement[]>(url);
-
-}
-getEvent(id:string){
-  const url=`${'http://localhost:3001/events/'}${id}`;
-  console.log('Fetching events from URL:', id);
-      return this.http.get<Evenement>(url);
-}
-addEvent(event:Evenement){
-  const url='http://localhost:3001/events';
-
-  return this.http.post<Evenement>(url,event)
-}
-updateEvent(id:string,value:{title:string , start_date: string,end_date:string, place: string}){
-   const url=`${'http://localhost:3001/events/'}${id}`;
-return this.http.put<Evenement>(url,value)
-}
-
-deleteEvent(id:string): Observable<void>{
-  const url=`${'http://localhost:3001/events/'}${id}`;
-  return this.http.delete<void>(url);
-}
+   private eventsPath = 'events';
+    
+      constructor(private db: Database) {}
+  
+      getEvents():Observable<Evenement[]>{
+        const dbRef = ref(this.db, this.eventsPath);
+        return  from(get(dbRef).then(snapshot => snapshot.val()));
+     }
+  
+     getEvent(id: string) : Observable<Evenement>{
+        const dbRef = ref(this.db, `${this.eventsPath}/${id}`);
+        return from(get(dbRef).then(snapshot => snapshot.val()));
+      }
+    
+      addEvent(event:Evenement): Observable<void>{
+        const dbRef = ref(this.db, this.eventsPath);
+        const newEventRef = push(dbRef);
+        return from(set(newEventRef, event));
+      }
+   
+      updateEvent(id:string, value:{type:string , title: string,lien:string, date: string,sourcepdf:string }): Observable<void> {
+        const dbRef = ref(this.db, `${this.eventsPath}/${id}`);
+        return from(update(dbRef, value));
+      }
+  
+      deleteEvent(id: string): Observable<void> {
+        const dbRef = ref(this.db, `${this.eventsPath}/${id}`);
+        return from(remove(dbRef));
+      }
 }

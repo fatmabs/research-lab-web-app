@@ -18,7 +18,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { environment } from "./environmet";
+import { environment } from "./environments/environmet";
+import { provideDatabase, getDatabase } from '@angular/fire/database'; // For Realtime Database
 
 import { AppRoutingModule } from "./app-routing.module";
 import { LoginPageModule } from "./login-page/login-page.module";
@@ -34,6 +35,7 @@ import { SideNavModule } from "./side-nav/side-nav.module";
     BrowserModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()), 
+    provideDatabase(() => getDatabase( )), 
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
